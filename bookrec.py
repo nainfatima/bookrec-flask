@@ -11,15 +11,15 @@ def recommend_by_genre(selected_title):
     )
     row = cursor.fetchone()
     if not row:
-        return []                   # was string before, now empty list
+        return []                  
     genre = row[0]
     cursor.execute(
         "SELECT title, image FROM books WHERE genre=? AND LOWER(title)!=?",
         (genre, selected_title.lower())
     )
-    recs = cursor.fetchall()       # stays a list of tuples
+    recs = cursor.fetchall()       
     conn.close()
-    return recs                     # even if recs is empty, we return []
+    return recs                     
     
 def recommend_by_author(selected_title):
     conn = get_connection()
