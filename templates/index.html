@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Recommendations</title>
+  <style>
+    /* page background */
+    body {
+      background-color: #f0f2f5;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* center container */
+    .main {
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Recommendation list reset */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      width: 45%;
+      margin: 10px 2.5%;
+      vertical-align: top;
+      background: #fafafa;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    li img {
+      max-width: 100%;
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto 8px;
+    }
+
+    /* “no result” message */
+    .no-results {
+      color: #666;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1>📚 Book Recommendations</h1>
+
+    <form method="POST" action="/recommend">
+      <input type="text" id="selected_title" name="selected_title" placeholder="Enter a book title…" required>
+      <button type="submit">Get Recommendations</button>
+    </form>
+
+    <h2>By Genre</h2>
+    {% if genre_recommendations %}
+      <ul>
+        {% for title, image in genre_recommendations %}
+          <li>
+            <img src="{{ url_for('static', filename=image) }}" alt="{{ title }}">
+            <div>{{ title }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="no-results">No genre-based recommendations found.</p>
+    {% endif %}
+
+    <h2>By Author</h2>
+    {% if author_recommendations %}
+      <ul>
+        {% for title, image in author_recommendations %}
+          <li>
+            <img src="{{ url_for('static', filename=image) }}" alt="{{ title }}">
+            <div>{{ title }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="no-results">No author-based recommendations found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
+

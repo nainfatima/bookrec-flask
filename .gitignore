@@ -1,0 +1,10 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# SQLite database
+books.db
+
+# Virtual environment (if you have one)
+venv/
+.env
