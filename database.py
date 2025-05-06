@@ -1,10 +1,10 @@
 import sqlite3
 
-# Connect to SQLite (it creates books.db if it doesn't exist)
+
 conn = sqlite3.connect("books.db")
 cursor = conn.cursor()
 
-# Create a books table
+
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS books (
 )
 ''')
 
-# Insert book records (run once to populate)
+
 books_data = [
     ("As Long as the Lemon Trees Grow", "Zoulfa Katouh", "Historical Fiction"),
     ("A House Without Windows", "Nadia Hashimi", "Domestic Fiction"),
