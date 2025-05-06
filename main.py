@@ -7,7 +7,7 @@ def recommend_by_genre(selected_title):
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Find the genre of the selected book
+   
     cursor.execute(
         "SELECT genre FROM books WHERE LOWER(title)=?",
         (selected_title.lower(),)
@@ -36,7 +36,7 @@ def recommend_by_author(selected_title):
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Find the author of the selected book
+  
     cursor.execute(
         "SELECT author FROM books WHERE LOWER(title)=?",
         (selected_title.lower(),)
@@ -61,7 +61,7 @@ def recommend_by_author(selected_title):
             print("   No other books by this author.")
     conn.close()
 
-# ------------------ MAIN LOOP -------------------
+
 while True:
     print("\n How would you like to get recommendations?")
     print(" 1. By Genre")
@@ -79,4 +79,4 @@ while True:
         print("\n Goodbye! Happy Reading!")
         break
     else:
-        print("⚠️ Invalid choice. Please choose 1, 2, or 3.")
+        print(" Invalid choice. Please choose 1, 2, or 3.")
