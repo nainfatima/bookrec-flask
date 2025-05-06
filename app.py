@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-from book_db import setup_database  # Remove insert_books import
+from book_db import setup_database  
 from bookrec import recommend_by_genre, recommend_by_author
 
 app = Flask(__name__)
 
-# Setting up the database
+
 setup_database()
 
 @app.route('/')
