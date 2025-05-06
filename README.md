@@ -1,6 +1,6 @@
 # Book Recommender (Flask)
 
-A lightweight Flask web module that recommends books by genre or author from an SQLite database—and even shows their cover images.
+A simple Flask web module that recommends books by genre or author from an SQLite database,and even shows their cover images.
 
 ---
 
