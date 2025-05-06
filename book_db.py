@@ -4,7 +4,7 @@ def setup_database():
     conn = sqlite3.connect("books.db")
     cursor = conn.cursor()
 
-    # Create table with image column
+
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS books (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,7 +15,6 @@ def setup_database():
     )
     ''')
 
-    # Clear table to avoid duplicates
     cursor.execute("DELETE FROM books")
 
     books_data = [
